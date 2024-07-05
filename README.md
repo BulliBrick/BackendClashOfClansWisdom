@@ -1,1 +1,1 @@
-# ClashoriOfClansWisdom
+# ClashOfClansWisdom
