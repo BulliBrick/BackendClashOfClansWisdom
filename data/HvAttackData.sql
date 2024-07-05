@@ -1,3 +1,3 @@
 INSERT INTO hvattack_data
 (thlvl, armycomp, description, guide, name)
-VALUES (3, E'40x Barbarians \n30x Archers', 'Barbarian and archer attack Strategy', E' This is a very simple attack strategy. \n 1. Use the greater hitpoints of the barbarians to tank damage. \n 2. Focus your attack on th Splash defenses such as moarters. You want to use as little of troops to destroy them. \n 3. Once the splash defenses are destroyed, use the rest of your troops to destroy the rest of the base. ', 'Barch Attack Strategy');
+VALUES (3, E'Sample Data \<br>Sample Data', 'Sample Data', E'Sample Data \<br> Sample Data', 'Sample Data');
