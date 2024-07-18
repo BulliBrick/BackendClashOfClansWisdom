@@ -5,11 +5,17 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class HVAttackService {
 
     private HVAttackRepository HVAttackRepository;
+
+    private HVAttackRepositoryTroops troopsRepository;
+
+    private HVAttackRepositorySpells spellsRepository;
 
     public HVAttackService(HVAttackRepository repository) {
         this.HVAttackRepository = repository;
@@ -27,9 +33,11 @@ public class HVAttackService {
         return HVAttackRepository.findByName(name);
     }
 
-    public HVAttackData insert(HVAttackData data){
-        return HVAttackRepository.save(data);
-    }
+    /*
+    *public HVAttackData insert(HVAttackData data){
+     * return HVAttackRepository.save(data);
+     *   }
+   */
 
     public HVAttackData save(HVAttackData data, Long id){
         return HVAttackRepository.findById(id)
@@ -49,4 +57,15 @@ public class HVAttackService {
         HVAttackRepository.deleteById((Long) id);
 
     }
+    /*
+    *
+    *public HVAttackData insert(HVAttackData data) {
+    *   Set<HVAttackDataTroops> troops = data.getTroopsById();
+    *
+    *   Set<HVAttackDataSpells> spells = data.getSpellsById();
+    *
+    *  HVAttackData hvAttackData = new HVAttackData(null, data.getTHLvl(), troops, spells, data.getDescription(), data.getGuide(), data.getName());
+    *  return HVAttackRepository.save(hvAttackData);
+    *}
+    */
 }

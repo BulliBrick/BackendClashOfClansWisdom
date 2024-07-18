@@ -10,4 +10,5 @@ import java.util.List;
 public interface HVAttackRepository extends JpaRepository<HVAttackData, Long> {
 
     public List<HVAttackData> findByName(String name);
+
 }

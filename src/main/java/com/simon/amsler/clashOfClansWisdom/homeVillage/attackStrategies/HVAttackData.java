@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
@@ -84,9 +85,6 @@ public class HVAttackData {
         this.guide = guide;
         this.name = name;
     }
-
-
-
 
 }
 
