@@ -1,14 +1,10 @@
 package com.simon.amsler.clashOfClansWisdom.homeVillage.clanCastleTroops;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.Type;
 
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 @Entity
@@ -28,14 +24,14 @@ public class HVClanCastleTroopsData {
     @JsonProperty("troops")
     private String troops;
 
-    //Creates extra table to store troops, need to find out how to store arraylist in single column or how to access it in another table
-
     @Column
     @JsonProperty("thlvl")
     private Long thlvl;
 
     @Column
     private String description;
+
+    // maybe change troops to list, spells not needed as this is defensive troops
 
     public HVClanCastleTroopsData() {
     }

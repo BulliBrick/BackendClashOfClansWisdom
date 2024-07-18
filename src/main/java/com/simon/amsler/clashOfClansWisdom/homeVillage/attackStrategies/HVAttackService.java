@@ -35,7 +35,8 @@ public class HVAttackService {
         return HVAttackRepository.findById(id)
                 .map(hvAttackOrig -> {
                     hvAttackOrig.setName(data.getName());
-                    hvAttackOrig.setArmycomp(data.getArmycomp());
+                    hvAttackOrig.setSpells(data.getSpells());
+                    hvAttackOrig.setTroops(data.getTroops());
                     hvAttackOrig.setDescription(data.getDescription());
                     hvAttackOrig.setGuide(data.getGuide());
                     hvAttackOrig.setTHLvl(data.getTHLvl());

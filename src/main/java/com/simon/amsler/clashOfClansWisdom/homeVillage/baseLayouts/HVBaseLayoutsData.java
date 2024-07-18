@@ -33,6 +33,7 @@ public class HVBaseLayoutsData {
     @JsonProperty("antistars")
     private Long antistars;
 
+    // maybe add list of anti (anti dragon ect)
 
 
 
