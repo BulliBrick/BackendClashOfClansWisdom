@@ -33,11 +33,11 @@ public class HVAttackService {
         return HVAttackRepository.findByName(name);
     }
 
-    /*
-    *public HVAttackData insert(HVAttackData data){
-     * return HVAttackRepository.save(data);
-     *   }
-   */
+/*
+    public HVAttackData insert(HVAttackData data){
+        return HVAttackRepository.save(data);
+    }
+*/
 
     public HVAttackData save(HVAttackData data, Long id){
         return HVAttackRepository.findById(id)
@@ -47,7 +47,7 @@ public class HVAttackService {
                     hvAttackOrig.setTroops(data.getTroops());
                     hvAttackOrig.setDescription(data.getDescription());
                     hvAttackOrig.setGuide(data.getGuide());
-                    hvAttackOrig.setTHLvl(data.getTHLvl());
+                    hvAttackOrig.setThlvl(data.getThlvl());
                     return HVAttackRepository.save(hvAttackOrig);
                 })
                 .orElseGet(() -> HVAttackRepository.save(data));
@@ -57,15 +57,15 @@ public class HVAttackService {
         HVAttackRepository.deleteById((Long) id);
 
     }
-    /*
-    *
-    *public HVAttackData insert(HVAttackData data) {
-    *   Set<HVAttackDataTroops> troops = data.getTroopsById();
-    *
-    *   Set<HVAttackDataSpells> spells = data.getSpellsById();
-    *
-    *  HVAttackData hvAttackData = new HVAttackData(null, data.getTHLvl(), troops, spells, data.getDescription(), data.getGuide(), data.getName());
-    *  return HVAttackRepository.save(hvAttackData);
-    *}
-    */
+
+
+    public HVAttackData insert(HVAttackData data) {
+       Set<HVAttackDataTroops> troops = data.getTroops();
+
+       Set<HVAttackDataSpells> spells = data.getSpells();
+
+       HVAttackData hvAttackData = new HVAttackData(null, data.getThlvl(), troops, spells, data.getDescription(), data.getGuide(), data.getName());
+      return HVAttackRepository.save(hvAttackData);
+    }
+
 }

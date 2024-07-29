@@ -6,9 +6,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Data
 @Entity
@@ -20,7 +18,7 @@ public class HVAttackData {
     private Long id;
 
     @JsonProperty("thlvl")
-    private Long THLvl;
+    private Long thlvl;
 
     /*
     *@JsonProperty("armycomp")
@@ -29,23 +27,27 @@ public class HVAttackData {
     */
 
 
+
     @JsonProperty("troops")
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
             name = "hvtroops_attack",
             joinColumns = @JoinColumn(name = "hvattackdata_id"),
             inverseJoinColumns = @JoinColumn(name = "hvattackdatatroops_id")
     )
-    private Set<HVAttackDataTroops> troops;
+    private Set<HVAttackDataTroops> troops = new HashSet<>();
+
+
+
 
     @JsonProperty("spells")
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
         name = "hvspells_attack",
         joinColumns = @JoinColumn(name = "hvattackdata_id"),
         inverseJoinColumns = @JoinColumn(name = "hvattackdataspells_id")
     )
-    private Set<HVAttackDataSpells> spells;
+    private Set<HVAttackDataSpells> spells = new HashSet<>();
 
 
 //Set to not assing same troop/spell twice
@@ -67,9 +69,9 @@ public class HVAttackData {
     public HVAttackData() {
     }
 
-    public HVAttackData(Long id, Long THLvl, Set<HVAttackDataTroops> troops, Set<HVAttackDataSpells> spells, String description, String guide, String name) {
+    public HVAttackData(Long id, Long thlvl, Set<HVAttackDataTroops> troops, Set<HVAttackDataSpells> spells, String description, String guide, String name) {
         this.id = id;
-        this.THLvl = THLvl;
+        this.thlvl = thlvl;
         this.troops = troops;
         this.spells = spells;
         this.description = description;
@@ -77,14 +79,15 @@ public class HVAttackData {
         this.name = name;
     }
 
-    public HVAttackData(Long THLvl, Set<HVAttackDataTroops> troops, Set<HVAttackDataSpells> spells, String description, String guide, String name) {
-        this.THLvl = THLvl;
+    public HVAttackData(Long thlvl, Set<HVAttackDataTroops> troops, Set<HVAttackDataSpells> spells, String description, String guide, String name) {
+        this.thlvl = thlvl;
         this.troops = troops;
         this.spells = spells;
         this.description = description;
         this.guide = guide;
         this.name = name;
     }
+
 
 }
 

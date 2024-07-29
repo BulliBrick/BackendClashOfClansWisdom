@@ -4,6 +4,7 @@ package com.simon.amsler.clashOfClansWisdom.homeVillage.attackStrategies;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -25,6 +26,6 @@ public class HVAttackDataSpells {
     private Integer amount;
 
     @ManyToMany (mappedBy = "spells")
-    private List<HVAttackData> hvAttackData;
+    private List<HVAttackData> hvAttackData = new ArrayList<>();
 
 }
